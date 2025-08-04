@@ -1,0 +1,7 @@
+# Dev tools
+ruff
+mypy
+pre-commit
+
+# Also install prod deps here for testing
+-r requirements.txt
