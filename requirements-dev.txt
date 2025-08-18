@@ -2,6 +2,6 @@
 ruff
 mypy
 pre-commit
-
+uvicorn
 # Also install prod deps here for testing
 -r requirements.txt
