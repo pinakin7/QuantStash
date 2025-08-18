@@ -3,6 +3,8 @@ line-length = 100
 target-version = "py311"
 extend-exclude = ["migrations"]
 fix = true
+
+[tool.ruff.lint]
 select = [
   "E",  # pycodestyle errors
   "F",  # pyflakes
