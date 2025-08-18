@@ -1,7 +1,7 @@
 # scripts/fetch_demo.py
 from datetime import date
 
-from app.api.v1.data.yahoo import YahooFinanceProvider
+from app.data.yahoo import YahooFinanceProvider
 
 if __name__ == "__main__":
     provider = YahooFinanceProvider()
