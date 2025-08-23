@@ -27,10 +27,9 @@ class YahooService:
     @staticmethod
     def fetch_dividends(ticker: str, start: date, end: date) -> list[DividendHistory]:
         t = yf.Ticker(ticker)
-        # Convert start and end to string in ISO format for proper slicing
-        # Convert start and end to pandas.Timestamp for proper slicing
-        start_ts = pd.Timestamp(start)
-        end_ts = pd.Timestamp(end)
+        # Convert start and end to timezone-aware pandas.Timestamp for proper slicing
+        start_ts = pd.Timestamp(start).tz_localize('UTC')
+        end_ts = pd.Timestamp(end).tz_localize('UTC')
         divs = t.dividends.loc[start_ts:end_ts]
         return [
             DividendHistory(
