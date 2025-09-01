@@ -1,11 +1,20 @@
 from app.models.base import Base
-from sqlalchemy import BigInteger, Column, Date, Float, ForeignKey, String, UniqueConstraint
+from sqlalchemy import (
+    BigInteger,
+    Column,
+    Date,
+    Float,
+    ForeignKey,
+    Integer,
+    String,
+    UniqueConstraint,
+)
 
 
 class PriceHistory(Base):
     __tablename__ = "price_history"
 
-    id = Column(BigInteger, primary_key=True, autoincrement=True)
+    id = Column(Integer, primary_key=True, autoincrement=True)
     ticker = Column(String, ForeignKey("assets.ticker"), index=True, nullable=False)
     date = Column(Date, index=True, nullable=False)
 
