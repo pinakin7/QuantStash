@@ -23,5 +23,13 @@ class PriceRepository:
         return [r for r in results if isinstance(r, PriceHistory)]
 
     def add_many(self, prices: list[PriceHistory]) -> None:
-        self.db.bulk_save_objects(prices)
+        # Use add_all instead of bulk_save_objects to properly handle auto-incrementing IDs
+        if not prices:
+            return
+        
+        self.db.add_all(prices)
         self.db.commit()
+        
+        # Refresh all objects to get their generated IDs
+        for price in prices:
+            self.db.refresh(price)
