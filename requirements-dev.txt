@@ -2,6 +2,7 @@
 ruff
 mypy
 pre-commit
-
+uvicorn
+alembic
 # Also install prod deps here for testing
 -r requirements.txt
